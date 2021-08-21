@@ -10,7 +10,7 @@ package Proyecto;
  */
 import java.util.Scanner;
 
-public class loginn {
+public class login {
 
     public static void main(String[] args) {
 
@@ -34,7 +34,7 @@ public class loginn {
 
         }
 
-        System.out.println("login y pass, correctos...");
+        System.out.println("usuario y contraseña correcta ");
 
     }
 
