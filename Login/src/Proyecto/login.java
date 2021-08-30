@@ -42,7 +42,7 @@ public class login {
     public void setContraseña(String Contraseña) {
         this.Contraseña = Contraseña;
     }
-
+    
     public String getNivel() {
         return nivel;
     }
