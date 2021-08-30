@@ -12,30 +12,86 @@ import java.util.Scanner;
 
 public class login {
 
-    public static void main(String[] args) {
+    private Scanner teclado;
+    private String usuario;
+    private String Contraseña;
+    private String nivel;
+    int i;
 
-        Scanner teclado = new Scanner(System.in);
-        int login = 0, pass = 0, intentos = 1, maximo = 2;
-
-        while ((login != 1010) || (pass != 1111) && (intentos < maximo)) {
-
-            System.out.print("Ingreso Usuario: ");
-            login = teclado.nextInt();
-
-            System.out.print("Ingrese Contraseña:");
-            pass = teclado.nextInt();
-
-            if (intentos == 3) {
-                System.out.println("acceso denegado..");
-                intentos = intentos - maximo;
-            }
-
-            intentos++;
-
-        }
-
-        System.out.println("usuario y contraseña correcta ");
-
+    public login() {
     }
 
+    public login(String usuario, String Contraseña, String nivel) {
+        this.usuario = usuario;
+        this.Contraseña = Contraseña;
+        this.nivel = nivel;
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getContraseña() {
+        return Contraseña;
+    }
+
+    public void setContraseña(String Contraseña) {
+        this.Contraseña = Contraseña;
+    }
+
+    public String getNivel() {
+        return nivel;
+    }
+
+    public void setNivel(String nivel) {
+        this.nivel = nivel;
+    }
+
+    public Scanner getTeclado() {
+        return teclado;
+    }
+
+    public void setTeclado(Scanner teclado) {
+        this.teclado = teclado;
+    }
+
+    public void inicializar() {
+        teclado = new Scanner(System.in);
+        System.out.print("Bienvenido al sistema de ventas\n");
+        System.out.print("Favor ingresar usuario y contraseña\n");
+        do {
+            System.out.print("Ingrese su usuario: ");
+            usuario = teclado.next();
+            System.out.print("Ingrese su Contraseña: ");
+            Contraseña = teclado.next();
+            if (usuario.isEmpty() || Contraseña.isEmpty()) {
+                System.out.print("Error, falta usuario o contraseña");
+            } else {
+                if (usuario.equals("admin") && Contraseña.equals("admin123")) {
+                    System.out.print("Bienvenido " + usuario);
+                    int i = 0;
+
+                } else {
+                    if (usuario.equals("vendedor") && Contraseña.equals("vendedor123")) {
+                        System.out.print("Bienvenido " + usuario);
+                        i = 0;
+
+                    } else {
+                        if (usuario.equals("invitado") && Contraseña.equals("invitado123")) {
+                            System.out.print("Bienvenido " + usuario);
+                            i = 0;
+
+                        } else {
+                            System.out.print("Error, su Usuario o Contraseña son incorrectos");
+                        }
+                    }
+                }
+            }
+
+        } while (i > 0);
+    }
 }
