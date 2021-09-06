@@ -5,8 +5,12 @@
  */
 package Proyecto;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
+import Proyecto.Login;
+import Proyecto.Bitacora;
+import Proyecto.Ventas;
+import Proyecto.Log;
+import Proyecto.Catalogo;
 
 /**
  *
@@ -14,46 +18,112 @@ import java.util.Scanner;
  */
 public class Menu {
 
-    public static void main(String[] args) {
+    private Scanner teclado;
 
-        Scanner sn = new Scanner(System.in);
-        boolean salir = false;
-        int opcion; //Nos permite guarda la opciones del usuario
+    public void MenuAdmin(Login l, Ventas[] v, Catalogo[] catalogo, int contVentas, Log lo) {
+        int opcion = 0;
 
-        while (!salir) {
-
-            System.out.println("1. Opcion 1");
-            System.out.println("2. Opcion 2");
-            System.out.println("3. Opcion 3");
-            System.out.println("4. Salir");
-
-            try {
-
-                System.out.println("Escribe una de las opciones");
-                opcion = sn.nextInt();
-
-                switch (opcion) {
-                    case 1:
-                        System.out.println("Selecionaste la opcion 1");
-                        break;
-                    case 2:
-                        System.out.println("Selecionaste la opcion 2");
-                        break;
-                    case 3:
-                        System.out.println("Selecionaste la opcion 3");
-                        break;
-                    case 4:
-                        salir = true;
-                        break;
-                    default:
-                        System.out.println("Solo puede seleccionar 1,2,3 y 4 opciones");
-                }
-            } catch (InputMismatchException e) {
-                System.out.println("Debes insertar un número");
-                sn.next();
+        Bitacora b = new Bitacora();
+        teclado = new Scanner(System.in);
+        do {
+            System.out.println("Bienvenido" + " ");
+            System.out.println("1. Venta Nueva");
+            System.out.println("2. Consultar inventarios");
+            System.out.println("3. Cambiar contraseña");
+            System.out.println("4. Cerrar sesión");
+            System.out.print("Digite la opcion: ");
+            opcion = teclado.nextInt();
+            switch (opcion) {
+                //REALIZAR VENTA
+                case 1:
+                    v[0].mostrarCatalogoVenta(catalogo);
+                    v[contVentas].agregarProductos(catalogo, contVentas, l, lo);
+                    break;
+                case 2:
+                    //CONSULTAR INVENTARIOS
+                    v[0].consultarInventario(catalogo, l);
+                    break;
+                case 3:
+                    //CAMBIAR CONTRASEÑA     
+                    if (l.cambiarContraseña()) {
+                        b.cerrarSesion(l, lo);
+                        System.out.print("Volviendo a la pantalla de inicio de sesion");
+                        opcion = 4;
+                    }
+                    break;
+                case 4:
+                    //SALIR DEL SISTEMA
+                    b.cerrarSesion(l, lo);
+                    System.out.println("Saliendo del sistema....");
+                    break;
+                default:
+                    System.out.println("Opcion invalida");
             }
-        }
+            System.out.println();
+        } while (opcion != 4);
+    }
 
+    public void MenuVendedor(Login l, Ventas[] v, Catalogo[] catalogo, int contVentas, Log lo) {
+        int opcion = 0;
+        Bitacora b = new Bitacora();
+        teclado = new Scanner(System.in);
+        do {
+            System.out.println("Bienvendio" + " ");
+            System.out.println("1. Venta Nueva");
+            System.out.println("2. Consultar inventarios");
+            System.out.println("3. Cerrar sesión");
+            System.out.print("Digite la opcion: ");
+            opcion = teclado.nextInt();
+            switch (opcion) {
+                //REALIZAR VENTA
+                case 1: {
+                    v[0].mostrarCatalogoVenta(catalogo);
+                    v[contVentas].agregarProductos(catalogo, contVentas, l, lo);
+                }
+                break;
+                case 2:
+                    //CONSULTAR INVENTARIOS
+                    v[0].consultarInventario(catalogo, l);
+                    break;
+                case 3:
+                    //SALIR DEL SISTEMA  
+                    b.cerrarSesion(l, lo);
+                    System.out.println("Saliendo del sistema...");
+                    break;
+                default:
+                    System.out.println("Opcion invalida");
+            }
+            System.out.println();
+        } while (opcion != 3);
+    }
+
+    public void MenuInvitado(Login l, Ventas[] v, Catalogo[] catalogo, int contVentas, Log lo) {
+        int opcion = 0;
+        Bitacora b = new Bitacora();
+        teclado = new Scanner(System.in);
+        do {
+            System.out.println("Bienvendio" + " ");
+            System.out.println("1. Consultar precios");
+            System.out.println("2. Cerrar sesión");
+            System.out.print("Digite la opcion: ");
+            opcion = teclado.nextInt();
+            switch (opcion) {
+                //CONSULTAR PRECIOS
+                case 1: {
+                    System.out.println("Consultando precios...");
+                    v[0].mostrarCatalogoVenta(catalogo);
+                }
+                break;
+                case 2:
+                    //SALIR DEL SISTEMA   
+                    b.cerrarSesion(l, lo);
+                    System.out.println("Saliendo del sistema...");
+                    break;
+                default:
+                    System.out.println("Opcion invalida");
+            }
+            System.out.println();
+        } while (opcion != 2);
     }
 
 }

@@ -15,33 +15,56 @@ import java.util.List;
  */
 public class Catalogo {
 
+    private int Id;
+    private String Nombre;
+    private double Precio;
+    private int Unidades;
+
+    public Catalogo(int i, String n, double p, int u) {
+        this.Id = i;
+        this.Nombre = n;
+        this.Precio = p;
+        this.Unidades = u;
+    }
+
     public Catalogo() {
-        super();
+        this.Id = 0;
+        this.Precio = 0;
+        this.Unidades = 0;
     }
 
-    public static void main(java.lang.String[] args) {
-
-        // Definimos una ArrayList
-        List<String> list = new ArrayList<>();
-
-        // Añadimos elementos
-        list.add("HUEVOS");
-        list.add("POLLO");
-        list.add("FOSFOROS");
-        list.add("DULCES");
-        list.add("MARGARINA");
-        list.add("JABON");
-        list.add("CARNE");
-        list.add("GASEOSA");
-        list.add("DESECHABLES");
-
-        // Obtenemos un Iterador y recorremos la lista.
-        Iterator<String> iter = list.iterator();
-        while (iter.hasNext()) {
-            System.out.println(iter.next());
-        }
-
+    public int Getid() {
+        return this.Id;
     }
+
+    public String GetName() {
+        return this.Nombre;
+    }
+
+    public double GetPrecio() {
+        return this.Precio;
+    }
+
+    public int GetUnidades() {
+        return this.Unidades;
+    }
+
+    public void setId(int Id) {
+        this.Id = Id;
+    }
+
+    public void setNombre(String Nombre) {
+        this.Nombre = Nombre;
+    }
+
+    public void setPrecio(double Precio) {
+        this.Precio = Precio;
+    }
+
+    public void setUnidades(int Unidades) {
+        this.Unidades = Unidades;
+    }
+
 }
 
      
