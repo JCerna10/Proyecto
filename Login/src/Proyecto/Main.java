@@ -41,11 +41,11 @@ public class Main {
         Scanner t = new Scanner(System.in);
         int op = 0;
         do {
-            System.out.println("Bienvenido al sistema XYZ");
-            System.out.println("¿Que desea hacer?");
+            System.out.println("Bienvenido al sistema de VENTAS");
+            System.out.println("¿que quiere hacer?");
             System.out.println("1. Loguearse con usuario y contraseña");
             System.out.println("2. Salir y cerrar sistema");
-            System.out.print("Digite la opcion: ");
+            System.out.print("Digite la opcion por favor: ");
             op = t.nextInt();
             switch (op) {
                 case 1: {

@@ -4,17 +4,20 @@
  * and open the template in the editor.
  */
 package Proyecto;
+
 import java.io.*;
 import java.util.Scanner;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import Proyecto.Catalogo;
 import Proyecto.Log;
+
 /**
  *
  * @author roger
  */
 public class Ventas {
+
     private int idVenta;
     private Catalogo[] lst;
     private int contProd;
@@ -75,7 +78,7 @@ public class Ventas {
                 System.out.println(catalogo[id - 1].Getid() + "-" + catalogo[id - 1].GetName() + " " + catalogo[id - 1].GetUnidades());
             } else {
                 if (isNumber) {
-                    System.out.println("Error, el id del producto seleccionado no existe.");
+                    System.out.println("Error, el id del producto  no existe.");
                 } else {
                     while (cont < 10 && !encontrado) {
                         if (catalogo[cont].GetName().equals(palabra)) {
@@ -89,7 +92,7 @@ public class Ventas {
                         System.out.println("id nombre cantidad");
                         System.out.println(catalogo[cont].Getid() + "-" + catalogo[cont].GetName() + " " + catalogo[cont].GetUnidades());
                     } else {
-                        System.out.println("Error, la entrada de datos no corresponde con ningun producto");
+                        System.out.println("Error, los datos no corresponde con ningun producto");
                     }
                 }
             }
