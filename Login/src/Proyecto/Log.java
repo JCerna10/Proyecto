@@ -4,16 +4,19 @@
  * and open the template in the editor.
  */
 package Proyecto;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+
 /**
  *
  * @author roger
  */
 public class Log {
+
     private String contenido;
 
     public String getContenido() {
@@ -45,6 +48,9 @@ public class Log {
         segundos = calendario.get(Calendar.SECOND);
         fecha = dia + "-" + mes + "-" + anio;
         dato = user + "_" + fecha + "_" + hora + ":" + minutos + ":" + segundos + "_";
+        
+        //se creal el archivo y se escribe dentro de el lo que contiene 
+        //variable dato + contenido
         try {
             File file = new File("log/LG" + "_" + fecha + ".txt");
             if (!file.exists()) {
@@ -62,4 +68,3 @@ public class Log {
     }
 
 }
-

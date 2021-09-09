@@ -63,6 +63,8 @@ public class Menu {
         } while (opcion != 4);
     }
 
+    
+    
     public void MenuVendedor(Login l, Ventas[] v, Catalogo[] catalogo, int contVentas, Log lo) {
         int opcion = 0;
         Bitacora b = new Bitacora();

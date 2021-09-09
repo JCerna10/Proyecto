@@ -27,6 +27,7 @@ public class Main {
         v[0] = new Ventas();
         int contVentas = 0;
         Log lo = new Log();
+       
         Catalogo[] catalogo = new Catalogo[10];
         catalogo[0] = new Catalogo(1, "huevos", 0.1, 30);
         catalogo[1] = new Catalogo(2, "pollo", 5.0, 5);
@@ -40,6 +41,7 @@ public class Main {
         catalogo[9] = new Catalogo(10, "desechable", 3.25, 50);
         Scanner t = new Scanner(System.in);
         int op = 0;
+        //OPCIONES PARA ENTRAR A LA APLICACION
         do {
             System.out.println("Bienvenido al sistema XYZ");
             System.out.println("¿Que desea hacer?");
@@ -49,7 +51,7 @@ public class Main {
             op = t.nextInt();
             switch (op) {
                 case 1: {
-                    ///LOGUEARSE
+                    ///APLICAMOS UN SWITCH PARA LOGUEARSE
                     boolean isValid = l.ingresar();
                     if (isValid) {
                         switch (l.getTipoUsuario()) {

@@ -4,17 +4,20 @@
  * and open the template in the editor.
  */
 package Proyecto;
+
 import java.io.*;
 import java.util.Scanner;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import Proyecto.Catalogo;
 import Proyecto.Log;
+
 /**
  *
  * @author roger
  */
 public class Ventas {
+
     private int idVenta;
     private Catalogo[] lst;
     private int contProd;
@@ -33,6 +36,8 @@ public class Ventas {
         this.pedirDisculpas = false;
         this.hacerDescuento = false;
     }
+    //MOSTRAR EL CATALOGO 
+    //Aqui le decimos que imprima los primeros 10 primeros números enteros empezando por el cero y que nos muestre el id,Nombre,Precio
 
     public void mostrarCatalogoVenta(Catalogo[] catalogo) {
         System.out.println("id nombre precio");
@@ -41,6 +46,8 @@ public class Ventas {
         }
     }
 
+    //MOSTRAR EL CATALOGO EXISTENTE
+    //Aqui le decimos que imprima los primeros 10 primeros números enteros empezando por el cero y que nos muestre el id,Nombre,Precio
     public void mostrarCatalogoExistencia(Catalogo[] catalogo) {
         System.out.println("id nombre cantidad");
         for (int i = 0; i < 10; i++) {
@@ -48,6 +55,7 @@ public class Ventas {
         }
     }
 
+    //MOSTRAR EL INVENTARIO
     public void consultarInventario(Catalogo[] catalogo, Login l) {
         Scanner scn = new Scanner(System.in);
         String palabra;
@@ -58,6 +66,7 @@ public class Ventas {
         System.out.println("o introduce 'TODOS' si deseas ver las existencias de todos los productos");
         palabra = scn.nextLine();
         palabra = palabra.toLowerCase();
+        //usamos equals para saber si dos objetos son del mismo tipo y tienen los mismos datos. Nos dara el valor true si son iguales y false si no
         if (palabra.equals("todos")) {
             mostrarCatalogoExistencia(catalogo);
         } else {
@@ -95,7 +104,7 @@ public class Ventas {
             }
         }
     }
-
+    //AGREGAR PRODUCTOS 
     public boolean agregarProductos(Catalogo[] catalogo, int contVentas, Login l, Log lo) {
         Scanner scn = new Scanner(System.in);
         System.out.println("Digite la cadena de texto en donde indique los productos y cantidades de la venta");
@@ -104,7 +113,7 @@ public class Ventas {
         int tmp = 0;
         boolean resultado = true;
         String[] productos = palabra.split(",");
-
+        //length cuenta el número de caracteres de una cadena, incluidos todos los espacios y devuelve el número
         if (productos.length % 2 == 0) {
             while (index < productos.length && resultado) {
                 try {
@@ -185,6 +194,7 @@ public class Ventas {
         mes = Integer.toString(c.get(Calendar.MONTH) + 1);
         anio = Integer.toString(c.get(Calendar.YEAR));
         fecha = dia + "-" + mes + "-" + anio;
+       
         try {
             File file = new File("factura/FC" + this.idVenta + "_" + fecha + ".txt");
             if (!file.exists()) {
