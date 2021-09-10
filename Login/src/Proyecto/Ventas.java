@@ -11,6 +11,8 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import Proyecto.Catalogo;
 import Proyecto.Log;
+import Proyecto.Menu;
+import static java.lang.System.console;
 
 /**
  *
@@ -196,7 +198,7 @@ public class Ventas {
         fecha = dia + "-" + mes + "-" + anio;
        
         try {
-            File file = new File("factura/FC" + this.idVenta + "_" + fecha + ".txt");
+            File file = new File("factura" + this.idVenta + "_" + fecha + ".txt");
             if (!file.exists()) {
                 file.createNewFile();
             }

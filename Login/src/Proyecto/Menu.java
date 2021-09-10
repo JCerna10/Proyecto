@@ -62,8 +62,7 @@ public class Menu {
             System.out.println();
         } while (opcion != 4);
     }
-
-    
+  
     
     public void MenuVendedor(Login l, Ventas[] v, Catalogo[] catalogo, int contVentas, Log lo) {
         int opcion = 0;
